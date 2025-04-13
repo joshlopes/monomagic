@@ -14,11 +14,15 @@
   "options": {
     "GOOGLE_EMAIL": "your@email.com",
     "GOOGLE_APP_PASSWORD": "your_master_token_read_readme_for_more_info",
-    "SYNC_INTERVAL": "300"
+    "SYNC_INTERVAL": "300",
+    "HA_URL": "http://homeassistant.local:8123",
+    "HA_TOKEN": "your_long_lived_token"
   },
   "schema": {
     "GOOGLE_EMAIL": "str",
     "GOOGLE_APP_PASSWORD": "password",
-    "SYNC_INTERVAL": "int?"
+    "SYNC_INTERVAL": "int?",
+    "HA_URL": "str",
+    "HA_TOKEN": "password"
   }
 }
