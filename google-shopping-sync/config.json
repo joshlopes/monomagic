@@ -1,9 +1,9 @@
 {
-  "name": "Google Keep to HA Shopping List Sync",
-  "version": "1.0.0",
-  "slug": "google_keep_ha_sync",
+  "name": "Sync Google Keep Shopping List to Home Assistant",
+  "version": "1.0.1",
+  "slug": "google_keep_shopping_list_to_ha_sync",
   "description": "Syncs Google Keep Shopping List to Home Assistant",
-  "url": "https://github.com/yourusername/home-assistant-google-sync",
+  "url": "https://github.com/joshlopes/monomagic",
   "startup": "application",
   "boot": "auto",
   "arch": ["aarch64", "amd64", "armhf", "armv7", "i386"],
@@ -13,7 +13,7 @@
   "homeassistant_api": true,
   "options": {
     "GOOGLE_EMAIL": "your@email.com",
-    "GOOGLE_APP_PASSWORD": "your_master_token_or_app_password",
+    "GOOGLE_APP_PASSWORD": "your_master_token_read_readme_for_more_info",
     "SYNC_INTERVAL": "300"
   },
   "schema": {
