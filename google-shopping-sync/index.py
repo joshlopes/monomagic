@@ -50,7 +50,7 @@ def check_env_vars():
 def sync():
     keep = gkeepapi.Keep()
     try:
-        keep.login(GOOGLE_EMAIL, GOOGLE_APP_PASSWORD)
+        keep.authenticate(GOOGLE_EMAIL, GOOGLE_APP_PASSWORD)
         success = True
     except LoginException as e:
         log(f"Failed to authenticate to Google Keep: {e}")

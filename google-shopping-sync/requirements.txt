@@ -1,3 +1,3 @@
-gkeepapi>=0.14.0
+gkeepapi>=0.16.0
 python-dotenv
 requests
