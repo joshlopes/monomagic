@@ -5,7 +5,7 @@ FROM ${BUILD_FROM}
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # Install requirements
-RUN apk add --no-cache python3 py3-pip
+RUN apk add --no-cache python3 py3-pip gcc musl-dev python3-dev
 
 # Copy data
 COPY . /app

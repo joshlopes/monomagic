@@ -50,6 +50,8 @@ jobs:
             BUILD_FROM=ghcr.io/home-assistant/aarch64-base:3.15
           tags: ghcr.io/joshlopes/google-shopping-sync/aarch64:latest
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build and push for amd64
         uses: docker/build-push-action@v5
@@ -61,6 +63,8 @@ jobs:
             BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.15
           tags: ghcr.io/joshlopes/google-shopping-sync/amd64:latest
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build and push for armhf
         uses: docker/build-push-action@v5
@@ -72,6 +76,8 @@ jobs:
             BUILD_FROM=ghcr.io/home-assistant/armhf-base:3.15
           tags: ghcr.io/joshlopes/google-shopping-sync/armhf:latest
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build and push for armv7
         uses: docker/build-push-action@v5
@@ -83,6 +89,8 @@ jobs:
             BUILD_FROM=ghcr.io/home-assistant/armv7-base:3.15
           tags: ghcr.io/joshlopes/google-shopping-sync/armv7:latest
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Build and push for i386
         uses: docker/build-push-action@v5
@@ -94,3 +102,5 @@ jobs:
             BUILD_FROM=ghcr.io/home-assistant/i386-base:3.15
           tags: ghcr.io/joshlopes/google-shopping-sync/i386:latest
           labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
