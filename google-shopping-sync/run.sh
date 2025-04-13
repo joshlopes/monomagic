@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/with-contenv bashio
 
 # Check if we're running in Home Assistant Add-on environment
 if command -v bashio > /dev/null 2>&1; then
@@ -38,8 +38,8 @@ fi
 # Make sure we have default values for required variables
 GOOGLE_EMAIL=${GOOGLE_EMAIL:-""}
 GOOGLE_APP_PASSWORD=${GOOGLE_APP_PASSWORD:-""}
-HA_URL=${HA_URL:-"http://supervisor/core"}
-HA_TOKEN=${HA_TOKEN:-""}
+HA_URL="http://supervisor/core"
+HA_TOKEN=${HA_TOKEN:-$SUPERVISOR_TOKEN}
 SYNC_INTERVAL=${SYNC_INTERVAL:-300}
 
 # Export as environment variables
