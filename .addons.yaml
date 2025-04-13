@@ -1,0 +1,7 @@
+---
+channel: stable
+addons:
+  google-shopping-sync:
+    repository: joshlopes/monomagic
+    target: google-shopping-sync
+    image: ghcr.io/joshlopes/google-shopping-sync/{arch}
