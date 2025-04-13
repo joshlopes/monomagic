@@ -1,11 +1,24 @@
 IMAGE_NAME = google-keep-ha-sync
 CONTAINER_NAME = google-keep-ha-sync
 ENV_FILE = .env
-
-.PHONY: build run stop restart logs setup-local run-local
+ARCH ?= amd64
+BUILD_ARG ?=
+# GitHub Container Registry credentials (optional)
+GH_USERNAME ?=
+GH_TOKEN ?=
 
 build:
-	docker build -t $(IMAGE_NAME) .
+	@echo "Building Docker image for $(ARCH) architecture..."
+	@BUILD_FROM=$$(jq -r '.build_from.$(ARCH)' build.json) && \
+	echo "Using base image: $$BUILD_FROM" && \
+	if [ -n "$(GH_USERNAME)" ] && [ -n "$(GH_TOKEN)" ]; then \
+		echo "Logging in to GitHub Container Registry..." && \
+		echo $(GH_TOKEN) | docker login ghcr.io -u $(GH_USERNAME) --password-stdin; \
+	fi && \
+	docker build \
+		--build-arg BUILD_FROM=$$BUILD_FROM \
+		$(BUILD_ARG) \
+		-t $(IMAGE_NAME) .
 
 run:
 	docker run --rm \

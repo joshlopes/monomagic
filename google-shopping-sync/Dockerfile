@@ -13,11 +13,12 @@ COPY . /app
 # Set working directory
 WORKDIR /app
 
-# Install Python requirements
-RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r requirements.txt
+# Install Python requirements with --break-system-packages flag
+RUN pip3 install --no-cache-dir --upgrade pip --break-system-packages && \
+    pip3 install --no-cache-dir -r requirements.txt --break-system-packages
 
 # Make run script executable
 RUN chmod a+x /app/run.sh
 
+# Set command to run the script
 CMD [ "/app/run.sh" ]
