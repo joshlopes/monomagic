@@ -1,8 +1,22 @@
-FROM python:3.11-slim
+ARG BUILD_FROM=ghcr.io/home-assistant/amd64-base:3.15
+FROM ${BUILD_FROM}
 
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+# Install requirements
+RUN apk add --no-cache python3 py3-pip
+
+# Copy data
+COPY . /app
+
+# Set working directory
 WORKDIR /app
-COPY . .
 
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python requirements
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-CMD ["python", "index.py"]
+# Make run script executable
+RUN chmod a+x /app/run.sh
+
+CMD [ "/app/run.sh" ]

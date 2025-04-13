@@ -113,13 +113,25 @@ Replace the values with your actual credentials and configuration.
 
 ### Option 3: Run as a Home Assistant Add-on
 
-1. Copy the `home-assistant-google-sync` directory to your Home Assistant's `addons` directory
+1. Copy the `home-assistant-google-sync` directory to your Home Assistant's `addons` directory:
+   ```bash
+   mkdir -p /config/addons/google-keep-ha-sync
+   cp -r * /config/addons/google-keep-ha-sync/
+   ```
 
-2. In the Home Assistant UI, go to Settings → Add-ons → Add-on Store → Local Add-ons
+2. In the Home Assistant UI, go to **Settings** → **Add-ons** → **Add-on Store**
 
-3. Install and configure the "Google Keep to HA Shopping List Sync" add-on
+3. Click the menu in the top-right corner and select **Reload**
 
-4. Start the add-on
+4. Click on the menu again and select **Local Add-ons**
+
+5. Find and install the "Google Keep to HA Shopping List Sync" add-on
+
+6. Configure your Google credentials in the add-on configuration
+
+7. Start the add-on
+
+For detailed installation instructions, see [ADDON_INSTALLATION.md](ADDON_INSTALLATION.md)
 
 ## Configuration
 
